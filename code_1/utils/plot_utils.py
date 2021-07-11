@@ -3,7 +3,6 @@ import pandas as pd
 import math
 from scipy.fftpack import fft
 import matplotlib.pyplot as plt
-import deprecated
 import re
 import os
 
@@ -11,8 +10,8 @@ root = os.path.dirname(os.path.abspath('__file__'))
 import sys
 
 sys.path.append(root)
-from utils.skopt_plots import plot_convergence, plot_objective, plot_evaluations
-from utils.fit_line import compute_linear_fit, compute_multi_linear_fit
+from code_1.utils.skopt_plots import plot_convergence, plot_objective, plot_evaluations
+from code_1.utils.fit_line import compute_multi_linear_fit
 
 # plt.rcParams['figure.figsize']=(10,8)
 plt.rcParams['font.size'] = 9

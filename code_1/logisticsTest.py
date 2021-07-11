@@ -4,15 +4,15 @@ import numpy as np
 from code_1.gen_sample import load_data
 from code_1 import evaluate as eval
 from sklearn.preprocessing import MinMaxScaler
-from utils.plot_utils import plot_rela_pred
+from code_1.utils.plot_utils import plot_rela_pred
 import pandas as pd
 
 plt.rcParams['font.sans-serif'] = ['SimHei']
-path = '../fig/logistic/'
+path = 'fig/logistic/'
 # %%
 scale = MinMaxScaler()
 # read data
-dataName = "美国人口"
+dataName = "中国人口"
 isScale = False
 year, pop = load_data(dataName)
 train_year = year[:-5]

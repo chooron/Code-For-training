@@ -1,0 +1,10 @@
+# 手动记录模型参数
+maltus: r=0.02221751
+logistics: K, P0, r = 3.60376507e+02, 6.66010753e+00, 2.34227104e-02
+arima: ARIMA(0,2,0)(0,0,0)[0]
+prophet: growth='logistic',cap = 2.8
+
+maltus2: 0.00413221
+logistics2: K, P0, r = 8.70768028e+09, 2.59111602e+02, 5.67821087e-03
+arima2: ARIMA(1,1,0)(0,0,0)[0]
+prophet2: growth='logistic',cap = 2.8

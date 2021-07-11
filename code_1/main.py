@@ -4,14 +4,15 @@ import numpy as np
 from code_1.gen_sample import load_data
 from code_1 import evaluate as eval
 from sklearn.preprocessing import MinMaxScaler
-from utils.plot_utils import plot_rela_pred
+from code_1.utils.plot_utils import plot_rela_pred
 import pandas as pd
+
 plt.rcParams['font.sans-serif'] = ['SimHei']
-path = '../fig/malthus/'
+path = 'fig/malthus/'
 # %%
 scale = MinMaxScaler()
 # read data
-dataName = "美国人口"
+dataName = "中国人口"
 isScale = False
 year, pop = load_data(dataName)
 train_year = year[:-5]
@@ -33,11 +34,6 @@ def malthusFun(t, r):
     return pop0 * np.exp(r * t)
 
 
-# 改进马尔萨斯指数增长模型
-def malthusFun_pro(t, a, b):
-    return (pop0 * a) / (b * pop0 + (a - b * pop0) * np.exp(-a * t))
-
-
 mf_para = curve_fit(malthusFun, train_index, train_pop, maxfev=1000000)[0]
 
 print('------马尔萨斯指数增长模型结果-------')
@@ -54,8 +50,6 @@ df['real'] = pop
 df['pred'] = total_pred
 df.to_csv(path + dataName + '(pred).csv', index=False)
 
-
-# a, b = curve_fit(malthusFun_pro, index, pop, maxfev=1000000)[0]
 plt.plot([train_year[-1]] + list(test_year), [train_pred[-1]] + list(test_pred), "-")
 plt.plot(year, pop)
 plt.plot(train_year, train_pred)
@@ -66,7 +60,6 @@ plt.ylabel('人口数量($\mathregular{10^6}$)')
 figure1 = plt.gcf()
 figure1.savefig("../fig/malthus/马尔萨斯指数增长模型({}).png".format(dataName))
 plt.show()
-
 plot_rela_pred(pop[:-5], train_pred, time=train_year, fig_savepath=r'../fig/malthus/{}(train).png'.format(dataName),
                measurement_time='a',
                measurement_unit='$\mathregular{10^6}$')

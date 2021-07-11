@@ -3,14 +3,13 @@ import numpy as np
 import pandas as pd
 from code_1.evaluate import evaluate
 from code_1.gen_sample import load_data
-from sklearn.preprocessing import MinMaxScaler
-from utils.plot_utils import plot_rela_pred
+from code_1.utils.plot_utils import plot_rela_pred
 
 plt.rcParams['font.sans-serif'] = ['SimHei']
-path = '../fig/arima/'
+path = 'fig/arima/'
 # %%
 # read data
-dataName = "中国人口"
+dataName = "美国人口"
 year, pop = load_data(dataName)
 train_year = year[:-5]
 test_year = year[-5:]

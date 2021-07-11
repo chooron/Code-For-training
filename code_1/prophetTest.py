@@ -6,10 +6,10 @@ from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
 from code_1.gen_sample import load_data
 from code_1.evaluate import evaluate
-from utils.plot_utils import plot_rela_pred
+from code_1.utils.plot_utils import plot_rela_pred
 import numpy as np
 
-path = '../fig/prophet/'
+path = 'fig/prophet/'
 plt.rcParams['font.sans-serif'] = ['SimHei']
 dataName = '美国人口'
 year, pop = load_data(dataName)
